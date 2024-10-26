@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Film Flix</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+</head>
+
+<body class="bg-gray-900 text-white">
+
+    <header class="bg-gray-800">
+        <nav class="max-w-screen-xl mx-auto p-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Film Flix</a>
+        </nav>
+    </header>
+
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-screen-lg mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-8">Choose Payment Method</h2>
+
+            <!-- Payment Method Form -->
+            <form id="payment-method-form" class="space-y-6">
+
+                <!-- Payment Method Options -->
+                <div class="text-left">
+                    <label class="block mb-2 text-lg font-semibold">Select Payment Method:</label>
+
+                    <!-- Net Banking Option -->
+                    <div>
+                        <input type="radio" id="net-banking" name="payment-method" value="net-banking" class="mr-2">
+                        <label for="net-banking" class="text-lg">Net Banking</label>
+                    </div>
+
+                    <!-- GPay Option -->
+                    <div>
+                        <input type="radio" id="gpay" name="payment-method" value="gpay" class="mr-2">
+                        <label for="gpay" class="text-lg">GPay</label>
+                    </div>
+
+                    <!-- Card Payment Option -->
+                    <div>
+                        <input type="radio" id="card" name="payment-method" value="card" class="mr-2">
+                        <label for="card" class="text-lg">Credit/Debit Card</label>
+                    </div>
+                </div>
+
+                <!-- Dynamic Payment Form Based on Selected Option -->
+                <div id="payment-fields" class="mt-4 space-y-4 hidden">
+                    <!-- Net Banking Fields -->
+                    <div id="net-banking-fields" class="hidden">
+                        <label for="bank-name" class="block mb-2 text-lg font-semibold">Select Bank</label>
+                        <select id="bank-name" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Choose a Bank</option>
+                            <option value="sbi">State Bank of India</option>
+                            <option value="hdfc">HDFC Bank</option>
+                            <option value="icici">ICICI Bank</option>
+                        </select>
+                    </div>
+
+                    <!-- GPay Fields -->
+                    <div id="gpay-fields" class="hidden">
+                        <label for="gpay-id" class="block mb-2 text-lg font-semibold">GPay ID</label>
+                        <input type="text" id="gpay-id" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter GPay UPI ID">
+                    </div>
+
+                    <!-- Card Payment Fields -->
+                    <div id="card-fields" class="hidden">
+                        <label for="card-number" class="block mb-2 text-lg font-semibold">Card Number</label>
+                        <input type="text" id="card-number" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="XXXX-XXXX-XXXX-XXXX">
+
+                        <div class="flex space-x-4 mt-4">
+                            <div>
+                                <label for="expiry-date" class="block mb-2 text-lg font-semibold">Expiry Date</label>
+                                <input type="text" id="expiry-date" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="MM/YY">
+                            </div>
+                            <div>
+                                <label for="cvv" class="block mb-2 text-lg font-semibold">CVV</label>
+                                <input type="text" id="cvv" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="XXX">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Proceed to Payment Button -->
+                <button type="button" id="proceed-payment-btn" class="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg hidden">Proceed to Payment</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 py-4 text-center">
+        <span class="text-sm text-gray-400">© 2024 Film Flix. All Rights Reserved.</span>
+    </footer>
+
+    <script src="js/payment.js">
+       
+    </script>
+
+</body>
+
+</html>

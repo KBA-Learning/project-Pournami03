@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - Film Flix</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-900 text-white">
+
+<header class="bg-gray-800">
+    <nav class="max-w-screen-xl mx-auto p-4 flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-bold">Film Flix</a>
+    </nav>
+</header>
+
+<section class="py-16 bg-gray-900 text-white">
+    <div class="max-w-screen-xl mx-auto text-center">
+        <h2 id="movie-title" class="text-4xl font-bold mb-8"></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+                <img id="movie-poster" class="w-full h-auto rounded-lg" alt="Movie Poster">
+            </div>
+            <div class="text-left">
+                <h3 class="text-2xl font-semibold mb-4">Movie Overview</h3>
+                <p id="movie-overview" class="mb-8"></p>
+                <a href="reservation.html" class="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg">Reserve Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="js/movie-details.js">
+    
+</script>
+
+</body>
+</html>

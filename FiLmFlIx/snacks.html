@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Snacks & Drinks</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header>
+        <nav class="bg-gray-800 p-4">
+            <div class="flex justify-between items-center max-w-screen-xl mx-auto">
+                <a href="#" class="text-2xl font-bold">Film Flix</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Snacks and Drinks Selection -->
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="max-w-screen-lg mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-8">FiLmFlIx Cafeteria: Your Movie Snack Hub!</h1>
+            <h2 class="text-3xl font-semibold mb-8">Enjoy Tasty Treats & Drinks as You Watch!</h2>
+
+            <!-- Snacks Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Snack Item 1 -->
+                <div class="bg-gray-800 p-6 rounded-lg text-center">
+                    <img src="images/pop.jpeg" alt="Popcorn" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-semibold mb-2">Popcorn</h3>
+                    <p class="text-lg text-gray-400 mb-2">$5.00</p>
+                    <button class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg">Add to Cart</button>
+                    <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">Buy now</button>
+                
+
+                </div>
+
+                <!-- Snack Item 2 -->
+                <div class="bg-gray-800 p-6 rounded-lg text-center">
+                    <img src="images/nachos.jpeg" alt="Nachos" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-semibold mb-2">Nachos</h3>
+                    <p class="text-lg text-gray-400 mb-2">$6.00</p>
+                    <button class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg">Add to Cart</button>
+                    <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">Buy now</button>
+                
+                </div>
+
+                <!-- Snack Item 3 -->
+                <div class="bg-gray-800 p-6 rounded-lg text-center">
+                    <img src="images/chips.jpeg" alt="Chips" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-2xl font-semibold mb-2">Chips</h3>
+                    <p class="text-lg text-gray-400 mb-2">$4.00</p>
+                    <button class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg">Add to Cart</button>
+                    <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">Buy now</button>
+                
+                </div>
+            </div>
+
+            <!-- Drinks Grid -->
+            <div class="mt-16">
+                <h2 class="text-3xl font-bold mb-8">Drinks</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Drink Item 1 -->
+                    <div class="bg-gray-800 p-6 rounded-lg text-center">
+                        <img src="images/cola.jpeg" alt="Cola" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2">Cola</h3>
+                        <p class="text-lg text-gray-400 mb-2">$3.00</p>
+                        <button class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg">Add to Cart</button>
+                        <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">Buy now</button>
+                
+                    </div>
+
+                    <!-- Drink Item 2 -->
+                    <div class="bg-gray-800 p-6 rounded-lg text-center">
+                        <img src="images/lemon.jpeg" alt="Lemonade" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2">Lemonade</h3>
+                        <p class="text-lg text-gray-400 mb-2">$3.50</p>
+                        <button class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg">Add to Cart</button>
+                        <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">Buy now</button>
+                
+                    </div>
+
+                    <!-- Drink Item 3 -->
+                    <div class="bg-gray-800 p-6 rounded-lg text-center">
+                        <img src="images/water.jpeg" alt="Water" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <h3 class="text-2xl font-semibold mb-2">Water</h3>
+                        <p class="text-lg text-gray-400 mb-2">$2.00</p>
+                        <button class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg">Add to Cart</button>
+                        <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">Buy now</button>
+                
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proceed to Payment -->
+            <div class="mt-8">
+                <a href="payment.html" class="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg inline-block">Proceed to Payment</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 py-4 text-center">
+        <span class="text-sm text-gray-400">© 2024 Film Flix. All Rights Reserved.</span>
+    </footer>
+    <script src="js/snacks.js"></script>
+
+</body>
+</html>

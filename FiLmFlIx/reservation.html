@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Background Image and Overlay */
+        .bg-cover-image {
+            background: url('images/png.jpg') center center / cover no-repeat;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Overlay for Background Image */
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            z-index: 1;
+        }
+
+        /* Ensuring the main content appears above the overlay */
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body class="bg-cover-image text-white">
+
+    <!-- Overlay -->
+    <div class="bg-overlay"></div>
+
+    <!-- Main Content -->
+    <div class="content min-h-screen flex flex-col justify-center items-center">
+        <h2 class="text-4xl font-bold mb-4">Select Your Seats</h2>
+        <p id="booking-details" class="mb-8 text-lg"></p>
+        
+        <div id="seat-grid" class="grid grid-cols-10 gap-2 bg-gray-800 bg-opacity-80 p-6 rounded-lg">
+            <!-- Seats will be populated by JavaScript -->
+        </div>
+
+        <div id="seat-selection-summary" class="text-lg font-semibold mt-4 hidden">
+            Selected Seats: <span id="selected-seats"></span>
+        </div>
+
+        <!-- Buttons for Snacks and Payment -->
+        <div class="mt-6 space-x-4">
+            <button id="proceed-to-snacks" class="px-6 py-3 bg-green-600 rounded-lg text-lg font-semibold hidden">Proceed to Snacks & Drinks</button>
+            <button id="proceed-to-payment" class="px-6 py-3 bg-blue-600 rounded-lg text-lg font-semibold hidden">Proceed to Payment</button>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const movie = urlParams.get('movie');
+        const date = urlParams.get('date');
+        const time = urlParams.get('time');
+
+        document.getElementById('booking-details').textContent = `You selected: ${movie} on ${date} at ${time}`;
+
+        const rows = 10;
+        const cols = 10;
+        const seatGrid = document.getElementById('seat-grid');
+        const selectedSeatsDisplay = document.getElementById('selected-seats');
+        const proceedToSnacks = document.getElementById('proceed-to-snacks');
+        const proceedToPayment = document.getElementById('proceed-to-payment');
+        const occupiedSeats = [3, 4, 14, 22, 30, 44, 53, 55];
+
+        for (let i = 0; i < rows * cols; i++) {
+            const seat = document.createElement('div');
+            seat.classList.add('seat');
+            if (occupiedSeats.includes(i)) {
+                seat.classList.add('occupied');
+            }
+            seat.dataset.seatIndex = i;
+            seat.addEventListener('click', selectSeat);
+            seatGrid.appendChild(seat);
+        }
+
+        let selectedSeats = [];
+
+        function selectSeat(e) {
+            const seat = e.target;
+            if (seat.classList.contains('occupied')) return;
+
+            const seatIndex = seat.dataset.seatIndex;
+            if (selectedSeats.includes(seatIndex)) {
+                selectedSeats = selectedSeats.filter(s => s !== seatIndex);
+                seat.classList.remove('selected');
+            } else {
+                selectedSeats.push(seatIndex);
+                seat.classList.add('selected');
+            }
+
+            updateSelectedSeats();
+        }
+
+        function updateSelectedSeats() {
+            selectedSeatsDisplay.textContent = selectedSeats.length > 0 ? selectedSeats.join(', ') : 'None';
+            proceedToSnacks.classList.toggle('hidden', selectedSeats.length === 0);
+            proceedToPayment.classList.toggle('hidden', selectedSeats.length === 0);
+        }
+
+        // Redirect to Snacks Page
+        proceedToSnacks.addEventListener('click', function () {
+            const queryParams = new URLSearchParams({
+                movie: movie,
+                date: date,
+                time: time,
+                seats: selectedSeats.join(',')
+            }).toString();
+
+            window.location.href = `snacks.html?${queryParams}`;
+        });
+
+        // Redirect to Payment Page
+        proceedToPayment.addEventListener('click', function () {
+            const queryParams = new URLSearchParams({
+                movie: movie,
+                date: date,
+                time: time,
+                seats: selectedSeats.join(',')
+            }).toString();
+
+            window.location.href = `payment.html?${queryParams}`;
+        });
+    </script>
+</body>
+
+</html>

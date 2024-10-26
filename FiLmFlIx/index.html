@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Flix - Book Your Movie Now</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header>
+        <nav class="bg-gray-800 border-gray-200 dark:bg-gray-900">
+            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                    <img src="images/logoo.png" class="h-14" alt="Film Flix Logo" />
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FiLmFlIx</span>
+                </a>
+                <div class="flex items-center space-x-6">
+                    <!-- Search bar -->
+                    <form id="search-form" class="flex items-center space-x-2">
+                        <input 
+                            type="text" 
+                            id="search-query"
+                            placeholder="Search movies..." 
+                            class="w-60 p-2 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+                        />
+                        <button 
+                            type="submit" 
+                            class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg"
+                        >
+                            Search
+                        </button>
+                    </form>
+                    <a href="login.html" class="text-sm text-blue-600 hover:underline">Login</a>
+                </div>
+        </nav>
+    </header>
+
+    
+    <!-- Hero Section with Background Video -->
+<section class="relative h-screen overflow-hidden">
+    <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="images/movie.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <!-- Text Overlay -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center z-10">
+        <h1 class="text-5xl font-bold mb-4">Book Your Favorite Movies Instantly</h1>
+        <p class="text-xl mb-8">Find, reserve, and enjoy your favorite movies in just a few clicks.</p>
+        <a href="movieselection.html" class="px-8 py-4 bg-blue-600 text-white text-lg font-semibold rounded-lg">Book Now</a>
+    </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gray-50 text-gray-900">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8">Why Choose Film Flix?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-white shadow-lg rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Fast Reservations</h3>
+                    <p>Reserve your seat within seconds with our streamlined booking process.</p>
+                </div>
+                <div class="p-6 bg-white shadow-lg rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Exclusive Offers</h3>
+                    <p>Enjoy special deals and discounts on your favorite movies.</p>
+                </div>
+                <div class="p-6 bg-white shadow-lg rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Seamless Experience</h3>
+                    <p>Experience a hassle-free interface that makes booking a breeze.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 text-center">
+        <span class="text-sm text-gray-400">© 2024 Film Flix. All Rights Reserved.</span>
+    </footer>
+
+    <!-- JavaScript for Search Functionality -->
+    <script src="js/index.js"></script>
+
+</body>
+</html>

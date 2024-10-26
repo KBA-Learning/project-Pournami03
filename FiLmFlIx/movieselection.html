@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Movie</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+</head>
+
+<body class="bg-gray-900 text-white">
+    <div class="min-h-screen flex flex-col justify-center items-center py-10">
+        <h2 class="text-4xl font-bold mb-8">Choose Your Movie, Date & Time</h2>
+        
+        <!-- Movie Selection -->
+        <form id="movie-selection-form" class="space-y-6 bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md">
+            <div class="mb-6">
+                <label class="block mb-4 text-lg font-semibold">Select a Movie</label>
+                <div class="grid grid-cols-3 gap-4">
+                    <!-- Movie Cards -->
+                    <div class="movie-option" data-movie="ARM">
+                        <img src="images/ARM.jpg" alt="ARM" class="rounded-lg h-48 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                        <p class="text-center mt-2">ARM</p>
+                    </div>
+                    <div class="movie-option" data-movie="JIGRA">
+                        <img src="images/film2.jpeg" alt="JIGRA" class="rounded-lg h-48 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                        <p class="text-center mt-2">JIGRA</p>
+                    </div>
+                    <div class="movie-option" data-movie="AMARAN">
+                        <img src="images/AMAR.jpeg" alt="AMARAN" class="rounded-lg h-48 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                        <p class="text-center mt-2">AMARAN</p>
+                    </div>
+                    <div class="movie-option" data-movie="VENOM">
+                        <img src="images/venom.jpg" alt="VENOM" class="rounded-lg h-48 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                        <p class="text-center mt-2">VENOM</p>
+                    </div>
+                    <div class="movie-option" data-movie="PANI">
+                        <img src="images/pani.jpeg" alt="PANI" class="rounded-lg h-48 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                        <p class="text-center mt-2">PANI</p>
+                    </div>
+                    <div class="movie-option" data-movie="BOU">
+                        <img src="images/bou.jpeg" alt="BOU" class="rounded-lg h-48 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity">
+                        <p class="text-center mt-2">BOU</p>
+                    </div>
+                </div>
+                <input type="hidden" id="movie" />
+            </div>
+
+            <!-- Date Selection -->
+            <div>
+                <label for="date" class="block mb-2 text-lg font-semibold">Select Date</label>
+                <input type="date" id="date" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none">
+            </div>
+
+            <!-- Time Selection -->
+            <div>
+                <label for="time" class="block mb-2 text-lg font-semibold">Select Time</label>
+                <select id="time" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none">
+                    <option value="">Choose Time</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="18:00">6:00 PM</option>
+                </select>
+            </div>
+
+            <!-- Submit Button (Removed <a> tag) -->
+          <button type="submit" class="w-full py-3 bg-blue-600 rounded-lg text-lg font-semibold mt-4">Select Seats</button>
+        </form>
+    </div>
+
+    <script>
+       // Add click event to each movie option to set the selected movie
+document.querySelectorAll('.movie-option').forEach(option => {
+    option.addEventListener('click', function () {
+        // Remove active styling from all other movie options
+        document.querySelectorAll('.movie-option').forEach(opt => opt.classList.remove('border-4', 'border-blue-500'));
+        
+        // Add active styling to the clicked option
+        this.classList.add('border-4', 'border-blue-500');
+        
+        // Set the selected movie value in the hidden input field
+        document.getElementById('movie').value = this.getAttribute('data-movie');
+    });
+});
+
+// Handle form submission
+document.getElementById('movie-selection-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get values from inputs
+    const movie = document.getElementById('movie').value;
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+
+    // Check if all fields have been selected
+    if (!movie || !date || !time) {
+        alert('Please select a movie, date, and time.');
+        return;
+    }
+
+    // Create query parameters for URL
+    const queryString = `?movie=${encodeURIComponent(movie)}&date=${encodeURIComponent(date)}&time=${encodeURIComponent(time)}`;
+
+    // Log URL to check query string is created correctly
+    console.log('Redirecting to:', './reservation.html' + queryString);
+
+    // Redirect to reservation.html with the parameters
+    window.location.href = './reservation.html' + queryString;
+});
+
+    </script>
+</body>
+
+</html>

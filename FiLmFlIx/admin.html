@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Film Flix</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <style>
+        body {
+            background-image: url('./images/png.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .bg-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="bg-overlay min-h-screen flex flex-col">
+        <header class="bg-gray-800 p-4">
+            <div class="flex justify-between items-center max-w-screen-xl mx-auto w-full">
+                <h1 class="text-3xl font-bold text-center">Admin Dashboard - Film Flix</h1>
+
+                 
+                <a href="index.html" class="px-4 py-2 bg-red-600 text-white text-sm font-semibold rounded-lg">Logout</a>
+            </div>
+        </header>
+
+        <main class="flex-grow max-w-screen-xl mx-auto py-16">
+            <h2 class="text-4xl font-bold mb-8">Manage Reservations</h2>
+
+            <!-- Add Reservation Form -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-semibold mb-4">Add New Reservation</h3>
+                <form id="add-reservation-form" class="space-y-4">
+                    <div>
+                        <label for="movie" class="block text-lg font-semibold">Movie Name</label>
+                        <input type="text" id="movie" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="date" class="block text-lg font-semibold">Date</label>
+                        <input type="date" id="date" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label for="time" class="block text-lg font-semibold">Time</label>
+                        <input type="time" id="time" class="w-full p-3 bg-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <button type="submit" class="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg">Add Reservation</button>
+                </form>
+            </div>
+
+            <!-- Reservation List -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-4">Current Reservations</h3>
+                <table class="w-full text-left">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2">Movie</th>
+                            <th class="px-4 py-2">Date</th>
+                            <th class="px-4 py-2">Time</th>
+                            <th class="px-4 py-2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reservation-list">
+                        <!-- Reservations will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
